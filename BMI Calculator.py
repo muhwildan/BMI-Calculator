@@ -4,6 +4,8 @@ def hitungBMI():
     try :
         berat = float(inputBerat.get())
         tinggi = float(inputTinggi.get())/100
+        if berat < 0 or tinggi < 0 :
+            raise ValueError
         bmi = round(berat/(tinggi ** 2), 2)
         kategori = ""
         if bmi < 18 :
