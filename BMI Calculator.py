@@ -1,14 +1,31 @@
 import tkinter
 
+def hitungBMI():
+    try :
+        berat = float(inputBerat.get())
+        tinggi = float(inputTinggi.get())
+        bmi = round(berat/(tinggi ** 2), 2)
+        kategori = ""
+        if bmi < 18 :
+            kategori = "Kurang Gizi 1"
+        elif bmi <= 20 :
+            kategori = "Kurang Gizi 2"
+        elif bmi <= 25 :
+            kategori = "Normal"
+        elif bmi <= 27 :
+            kategori = "Overweight"
+        elif bmi <= 30 :
+            kategori = "Obesitas Tingkat 1"
+        elif bmi <= 35 :
+            kategori = "Obesitas Tingkat 2"
+        else :
+            kategori = "Obesitas Tingkat 3"
+        hasil["text"] = f"BMI: {bmi} ({kategori})"
+    except ValueError :
+        hasil["text"] = f"Input yang dimasukkan salah!"
+
 root = tkinter.Tk()
 root.title("BMI Calculator")
-
-def hitungBMI():
-    berat = float(inputBerat.get())
-    tinggi = float(inputTinggi.get())
-    bmi = round(berat/(tinggi ** 2), 2)
-    hasil["text"] = f"BMI: {bmi}"
-
 
 labelBerat = tkinter.Label(root, text="Berat(Kg): ")
 labelBerat.grid(column=0, row=0)
