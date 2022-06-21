@@ -3,7 +3,7 @@ import tkinter
 def hitungBMI():
     try :
         berat = float(inputBerat.get())
-        tinggi = float(inputTinggi.get())
+        tinggi = float(inputTinggi.get())/100
         bmi = round(berat/(tinggi ** 2), 2)
         kategori = ""
         if bmi < 18 :
@@ -33,7 +33,7 @@ labelBerat.grid(column=0, row=0)
 inputBerat = tkinter.Entry(root)
 inputBerat.grid(column=1, row=0)
 
-labelTinggi = tkinter.Label(root, text="Tinggi(m): ")
+labelTinggi = tkinter.Label(root, text="Tinggi(cm): ")
 labelTinggi.grid(column=0, row=1)
 
 inputTinggi = tkinter.Entry(root)
